@@ -8,6 +8,8 @@ import '../../common.dart';
 import 'login.dart';
 
 class SignUpPage extends StatelessWidget {
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,23 @@ class SignUpPage extends StatelessWidget {
   }
 }
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+
+  final loginController = TextEditingController();
+  final pwdController = TextEditingController();
+
+  @override
+  void dispose() {
+    loginController.dispose();
+    pwdController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -36,11 +54,13 @@ class Body extends StatelessWidget {
               height: size.height * 0.35,
             ),
             RoundedInputField(
+              controller: loginController,
               key: new Key('email'),
               hintText: AppLocalizations.of(context)!.pseudo,
               onChanged: (value) {},
             ),
             RoundedPasswordField(
+              controller: pwdController,
               key: new Key('pwd'),
               onChanged: (value) {},
             ),
@@ -126,7 +146,7 @@ class OrDivider extends StatelessWidget {
             child: Text(
               "OR",
               style: TextStyle(
-                color: primaryColor,
+                color: lPrimaryColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -167,7 +187,7 @@ class SocalIcon extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
-            color: primaryColor
+            color: lPrimaryColor
           ),
           shape: BoxShape.circle,
         ),

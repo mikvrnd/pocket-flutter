@@ -14,8 +14,22 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  String login = '';
-  String pwd = '';
+  final loginController = TextEditingController();
+  final pwdController = TextEditingController();
+
+  void login() {
+    String login = loginController.text;
+    String pwd = pwdController.text;
+    print('login: ' + login);
+    print('pwd: ' + pwd);
+  }
+
+  @override
+  void dispose() {
+    loginController.dispose();
+    pwdController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +45,22 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
-            ),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
+              controller: loginController,
               key: new Key('pseudo'),
               hintText: AppLocalizations.of(context)!.pseudo,
               onChanged: (value) {},
             ),
             RoundedPasswordField(
+              controller: pwdController,
               key: new Key('pwd'),
               onChanged: (value) {},
             ),
             RoundedButton(
               key: new Key('login'),
               text: AppLocalizations.of(context)!.login_button.toUpperCase(),
-              press: () {},
+              press: () => login(),
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
