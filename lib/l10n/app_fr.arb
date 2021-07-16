@@ -1,0 +1,15 @@
+{
+    "helloWorld": "Hello Motherfucker!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "welcome": "Bienvenue sur Pocket",
+    "login_text": "Connectez-vous",
+    "login_button": "Se connecter",
+    "signup": "Créer mon compte",
+    "password": "Mot de passe",
+    "fill_login": "Veuillez remplir le formulaire",
+    "pseudo": "Votre pseudo",
+    "no_account": "Vous n'avez pas de compte ?",
+    "already_account": "Vous avez déjà un compte"
+}
