@@ -3,9 +3,19 @@ import 'package:pocket_app/common.dart';
 import 'package:pocket_app/components/account_check.dart';
 import 'package:pocket_app/components/rounded_input_field.dart';
 import 'package:pocket_app/components/rounded_password_field.dart';
+import 'package:pocket_app/constants.dart';
 import 'package:pocket_app/view/login/signup.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  String login = '';
+  String pwd = '';
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +69,6 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class Background extends StatelessWidget {
